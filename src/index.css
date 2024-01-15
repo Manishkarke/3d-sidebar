@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Tilt+Neon&display=swap");
+
+:root {
+  --transition: all 0.5s linear;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  border: 1px solid red;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+body > div {
+  height: 100%;
+}
+.main-container {
+  height: 100%;
+  position: relative;
+  perspective: 100%;
+  transform-style: preserve-3d;
+  perspective-origin: center center;
+  border: 2px solid rgb(0, 253, 0);
+  display: flex;
+  align-items: center;
+}
+
+/* HamBurger Menu css */
+.hamburger-menu {
+  aspect-ratio: 1/1;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  padding: 5px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  right: -50px;
+  background-color: #fdf4f5;
+  cursor: pointer;
+  width: 40px;
+}
+
+.hamburger-menu .line {
+  background-color: black;
+  border-radius: 14px;
+  height: 4px;
+  position: absolute;
+  width: calc(100% - 10px);
+  transition: var(--transition);
+}
+
+.hamburger-menu .line:nth-child(2) {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.hamburger-menu .line:nth-child(3) {
+  bottom: 5px;
+}
+
+.active .line:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Active Hamburger Menu CSS */
+.active .line:nth-child(2) {
+  display: none;
+}
+
+.active .line:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(45deg);
+}
+
+.show-sidebar {
+  translate: -101%;
+}
+
+.sidebar {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+  padding-top: 43px;
+  width: 15%;
+  position: fixed;
+  height: 100%;
+  background-color: #fdf4f5;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.company-logo {
+  font-family: "Tilt Neon", sans-serif;
+}
+
+.company-logo span {
+  color: #d14d72;
+}
+
+.nav-items,
+.nav-items * {
+  width: 100%;
+}
+
+.nav-items {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+}
+
+.nav-items .link {
+  color: #0e0e0e;
+  width: 100%;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Content CSS */
+.content {
+  margin-left: auto;
+  width: 100%;
+  left: 16%;
+  overflow-y: scroll;
+  transition: var(--transition);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.content,
+.content > .section {
+  aspect-ratio: 16/9;
+}
+
+.content .section {
+  width: 100%;
+  font-size: 7rem;
+  text-transform: capitalize;
+  display: grid;
+  place-content: center;
+  color: #fefefe;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+#section-one {
+  background-color: #92c7cf;
+}
+#section-two {
+  background-color: #43766c;
+}
+#section-three {
+  background-color: #91c8e4;
+}
+#section-four {
+  background-color: #ffd1da;
+}
+#section-five {
+  background-color: #c4dfdf;
+}
+#section-six {
+  background-color: #ba90c6;
+}
+
+/* Three D active */
+.active-3d {
+  width: 80%;
+  aspect-ratio: 16/8;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 10px 2px 3px 0px rgba(0, 0, 0, 0.3),
+    10px 5px 6px 5px rgba(0, 0, 0, 0.15);
+  transform: rotateY(-30deg) rotate(1deg) rotateX(2deg) translateZ(-200px)
+    translateX(-1%);
+}
+
+.active-3d .section {
+  height: 100%;
+}
